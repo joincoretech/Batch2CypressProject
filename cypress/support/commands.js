@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import loginPage from "../support/pages/LoginPage"
+import loginText from "../support/resources/login"
+ 
+
+export function loginMethod( userName, password){
+
+    cy.visit(loginText.url);
+    cy.get(loginPage.userName).type(userName);
+    cy.get(loginPage.password).type(password);
+    cy.contains(loginPage.loginBtn).click();
+
+}
